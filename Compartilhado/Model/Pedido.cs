@@ -4,6 +4,13 @@ using System.Collections.Generic;
 
 namespace Model
 {
+    public enum StatusDoPedido
+    {
+        Coletado,
+        Pago,
+        Faturado
+    }
+
     [DynamoDBTable("pedidos")]
     public class Pedido
     {
@@ -19,12 +26,9 @@ namespace Model
 
         public Pagamento Pagamento { get; set; }
 
-        public string Justificativa { get; set; }
+        public string JustificativaDeCancelamento { get; set; }
 
-        public string Status { get; set; }
-
-        public bool Pago { get; set; }
-
-        public bool Faturado { get; set; }
+        public StatusDoPedido Status { get; set; }
+        public bool Cancelado { get; set; }       
     }
 }
